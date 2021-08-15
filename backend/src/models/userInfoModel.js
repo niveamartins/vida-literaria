@@ -19,10 +19,10 @@ module.exports = {
       });
   },
   async getUser(key) {
-    let user = await connection("user_info")
+    await connection("user_info")
       .where("STR_UserKey", key)
       .select("*")
-      .then(function () {
+      .then(function (user) {
         return user;
       })
       .catch(function () {
